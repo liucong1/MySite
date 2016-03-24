@@ -1,0 +1,8 @@
+@html.extend('mypage/layout/base', function(model){
+
+    @html.block('body', function(model){
+        <h1>My Test</h1>
+
+    })
+
+})

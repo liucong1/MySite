@@ -1,0 +1,6 @@
+{
+    "/": "indexController#indexPage",
+    "/personal-intro": "indexController#person_intro",
+    "/mypages": "indexController#mypages",
+    "/mytest":"indexController#mytest"
+}

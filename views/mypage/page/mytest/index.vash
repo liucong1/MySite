@@ -1,0 +1,19 @@
+@html.extend('mypage/layout/base', function(model){
+    @html.block('title', function(model){
+        "react测试"
+    });
+
+    @html.block('css', function(model){
+        <link rel="stylesheet" href="/stylesheets/mypage/mytest/index.css">
+    });
+
+    @html.block('body', function(model){
+        <dl class="mytest">
+            <dt>react测试</dt>
+            <dd class="link_box">
+                <a href="/mytest/test1">react基础语法测试</a>
+            </dd>
+        </dl>
+
+    });
+});

@@ -1,0 +1,18 @@
+@html.extend('mypage/layout/base', function(model){
+    @html.block('css', function(model){
+        <link rel="stylesheet" href="/stylesheets/mypage/index/index.css">
+    });
+    @html.block('body', function(model){
+        <ol class="whole-bg">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    });
+    @html.block('scripts', function(model){
+        <script>
+
+        </script>
+    });
+
+});

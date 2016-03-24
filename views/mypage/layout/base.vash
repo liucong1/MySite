@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@model.title</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common/animate.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common/reset.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common/ui.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mypage/common.css">
+    @html.block("css")
+    @html.block("js")
+</head>
+<body>
+    <header>
+        @if( html.block("header") && html.block("header") != "" ) {
+            @html.block("header")
+        }else{
+            <div class="header">
+                <a class="logo" title="liucong的个人网站">
+                    <img src="/images/index/logo.png" alt="liucong的个人网站">
+                </a>
+                <ul class="header-menu">
+                    <li><a href="/personal-intro">个人简介</a></li>
+                    <li><a href="">学习笔记</a></li>
+                    <li><a href="/mypages">个人作品</a></li>
+                    <li><a href="">联系方式</a></li>
+                    <li><a href="/mytest">个人测试</a></li>
+                </ul>
+            </div>
+            <div class="header-bg"></div>
+        }
+    </header>
+    
+    @html.block("body")
+
+    <footer>
+        @html.block('footer')   
+    </footer>
+    <!-- Render Page Specific Scripts Here -->
+    @html.block("scripts")
+</body>
+</html>

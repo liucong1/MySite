@@ -1,0 +1,94 @@
+.clearfix {
+    *zoom: 1;
+    _height:1%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+.hide{
+    display: none!important;
+}
+
+.pull-left{
+    float: left;
+}
+
+.pull-right{
+    float: right;
+}
+/**
+ * 滚动条
+ */
+::-webkit-scrollbar-track-piece {
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    height: 30px;
+    background-color: #999;
+    -webkit-border-radius: 7px;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+    border: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover {
+    height: 30px;
+    background-color: #9f9f9f;
+    -webkit-border-radius: 8px;
+}
+/**用于测量滚动条的宽度**/
+.scrollbar-measure {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9000px;
+}
+
+
+
+/*--按钮-------------------------------*/
+.ui-btn {
+    background-color: #f6f6f6;
+    padding: 8px 16px;
+    width: 240px;
+    min-width: 240px;
+    display: inline-block;
+    border-radius: 2px;
+    cursor: pointer;
+    &:hover {
+        opacity: .6;
+        filter: alpha(opacity=60);
+    }
+    &.btn-main {
+        color: #fd775c;
+        border: 2px solid #fb8e6d;      
+    }
+    &.btn-minor {
+        color: #6b6b6b;
+        border: 2px solid #a8a8a8;      
+    }
+}
+/**错误提示**/
+.ui-warning-text {
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #f64;
+    border: 1px solid #FFDA91;
+    background-color: #FCF3E2;
+    padding: 8px 16px;
+    overflow-y: auto;
+}

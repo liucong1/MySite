@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/common/animate.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/common/reset.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/common/ui.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/mypage/index.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/video/video-js.min.css">
+    <script src="javascripts/jquery-1.11.3.min.js"></script>
+    <!-- video.js must be in the <head> for older IEs to work. -->
+    <script src="javascripts/video/video.js"></script>
+    <script src="javascripts/video/jquery.jplayer.min.js"></script>
+    <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+    <script>
+        videojs.options.flash.swf = "javascripts/video/video-js.swf";
+    </script>
+</head>
+<body>
+<header class="clearfix">
+    <a class="logo" title="liucong的个人网站" href="/">
+        <img src="images/index/logo.png" alt="liucong的个人网站">
+    </a>
+    <ul class="header-menu">
+        <li><a href="/personal-intro">个人简介</a></li>
+        <li><a href="">学习笔记</a></li>
+        <li><a href="">个人作品</a></li>
+        <li><a href="">联系方式</a></li>
+    </ul>
+</header>
+<section class="content">
+    <h2>video.js 库</h2>
+      <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" 
+  data-setup='{ "asdf": true }' poster="http://video-js.zencoder.com/oceans-clip.png" >
+   <!--  <source src="http://www.julyedu.com/Public/Video/568a948709b87.mp4" type='video/mp4'> -->
+    <source src="http://localhost:3000/videos/oceans.mp4" type='video/mp4'>
+
+  </video>
+
+    <h2>最新video.js库</h2>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    videojs('my_video_1').ready(function(){
+      console.log(this.options()); //log all of the default videojs options
+      
+       // Store the video object
+      var myPlayer = this, id = myPlayer.id();
+      // Make up an aspect ratio
+      var aspectRatio = 264/640; 
+
+      function resizeVideoJS(){
+        var width = document.getElementById(id).parentElement.offsetWidth;
+        myPlayer.width(width).height( width * aspectRatio );
+
+      }
+      
+      // Initialize resizeVideoJS()
+      resizeVideoJS();
+      // Then on resize call resizeVideoJS()
+      window.onresize = resizeVideoJS; 
+    });
+});
+</script>
+</section>
+<footer>
+    
+</footer>
+</body>
+</html>

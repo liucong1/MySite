@@ -1,0 +1,234 @@
+@html.extend('mypage/layout/base', function(model){
+    @html.block('css', function(model){
+        <link rel="stylesheet" href="/stylesheets/mypage/mytest/test.css">
+    });
+    @html.block('js', function(model){
+        <script src="/javascripts/react/react.min.js"></script>
+        <script src="/javascripts/react/react-dom.min.js"></script>
+        <script src="/javascripts/react/browser.min.js"></script>
+    });
+    @html.block('body', function(model){
+        <section class="testBox">
+            <h1>React测试</h1>
+            <ul>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+ReactDOM.render(
+    <h1>哈哈哈哈</h1>,
+    document.getElementById('demo1')
+);
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo1"></div>
+
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+var names = ['Alice', 'Emily', 'Kate'];
+ReactDOM.render(
+    <div>
+    {
+        names.map(function(name){
+            return <div>Hello {name}!</div>
+        })
+    }
+    </div>,
+    document.getElementById("demo2")
+);
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo2"></div>
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+var arr = [
+  <h1>Hello world!</h1>,
+  <h2>React is awesome</h2>,
+];
+ReactDOM.render(
+  <div>{arr}</div>,
+  document.getElementById('example')
+);
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo3"></div>
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+var HelloMessage = React.createClass({
+  render: function() {
+    return <h1>Hello {this.props.name}</h1>;
+  }
+});
+
+ReactDOM.render(
+  <HelloMessage name="xiaoyu" />,
+  document.getElementById('example')
+);
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo4"></div>
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+var NoteList = React.createClass({
+    render: function(){
+        return (
+            <div>
+                {React.Children.map(this.props.children,function(child){
+                        return <div>{child}</div>;
+                    })
+                }
+            </div>
+        );
+    }
+});
+ReactDOM.render(
+    <NoteList>
+        <p>FE member</p>
+        <p>Xiao</p>
+        <p>Yu</p>
+        <p>Jiu</p>
+    </NoteList>,
+    document.getElementById("demo5")    
+);
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo5"></div>
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo6"></div>
+                </li>
+                <li>
+                    <p class="code-tip">代码块：</p>
+<textarea name="">
+
+</textarea>
+                    <p class="result-tip">展示结果：</p>
+                    <div id="demo7"></div>
+                </li>
+            </ul>
+        </section>
+    });
+    @html.block('scripts', function(model){
+        <script type="text/babel">
+            //ReactDOM.render()
+            //ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
+            ReactDOM.render(
+              <div onClick="alert(222);">哈哈哈哈</div>,
+              document.getElementById('demo1')
+            );
+
+            //JSX 语法,允许 HTML 与 JavaScript 的混写
+            //JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。
+            var names = ['Alice', 'Emily', 'Kate'];
+            ReactDOM.render(
+                <div>
+                {
+                    names.map(function(name){
+                        return <div>Hello {name}!</div>
+                    })
+                }
+                </div>,
+                document.getElementById("demo2")
+            );
+
+            var arr = [
+                <h2>Hello world</h2>,
+                <h3>React is awesome</h3>
+            ];
+            ReactDOM.render(
+                <div>
+                    {arr}
+                </div>,
+                document.getElementById("demo3")
+            );
+
+            //组件 React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。React.createClass 方法就用于生成一个组件类
+            var HelloMessage = React.createClass({
+                render: function(){
+                    return <div>Hello {this.props.name}</div> ;
+                }
+            });
+            ReactDOM.render(
+                <HelloMessage name="xiaoyu"/>,
+                document.getElementById("demo4")
+            );
+
+            //this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 this.props.children 属性。它表示组件的所有子节点
+            //this.props.children 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array 。所以，处理 this.props.children 的时候要小心。
+            //React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点，而不用担心 this.props.children 的数据类型是 undefined 还是 object。
+            var NoteList = React.createClass({
+                render: function(){
+                    return (
+                        <div>
+                            {
+                                React.Children.map(this.props.children,function(child){
+                                    return <div>{child}</div>;
+                                })
+                            }
+                        </div>
+                    );
+                }
+            });
+            ReactDOM.render(
+                <NoteList>
+                    <p>FE member</p>
+                    <p>Xiao</p>
+                    <p>Yu</p>
+                    <p>Jiu</p>
+                </NoteList>,
+                document.getElementById("demo5")    
+            );
+
+            //PropTypes 组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。
+            //getDefaultProps 方法可以用来设置组件属性的默认值。
+            var MyTitle = React.createClass({
+                getDefaultProps : function(){
+                    return {
+                        title: 'Hello Xiaoyu'
+                    };
+                },
+
+                render: function(){
+                    return <div>{this.props.title}</div>;
+                }
+            });
+            ReactDOM.render(
+                <MyTitle />,
+                document.getElementById("demo6")
+            );
+
+            //组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。
+            var MyComponent = React.createClass({
+                handleClick : function(){
+                    this.refs.myTextInput.focus();
+                },
+                render: function(){
+                    return (
+                        <div>
+                            <input type="text" ref="myTextInput"/>
+                            <input type="button" value="Focus the text input" onClick={this.handleClick}/>
+                        </div>
+                    );  
+                }
+            });
+            ReactDOM.render(
+                <MyComponent />,
+                document.getElementById('demo7')
+            );
+
+        </script>
+    });
+
+});
